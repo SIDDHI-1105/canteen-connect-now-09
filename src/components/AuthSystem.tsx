@@ -333,17 +333,19 @@ const AuthSystem = ({ onLogin }: AuthSystemProps) => {
                 Login
               </Button>
 
-              <div className="text-center">
-                <button
-                  onClick={() => {
-                    setCurrentView('register');
-                    resetForm();
-                  }}
-                  className="text-gray-600 hover:text-gray-800 underline text-base"
-                >
-                  Don't have an account? Register here
-                </button>
-              </div>
+              {userType !== 'admin' && (
+                <div className="text-center">
+                  <button
+                    onClick={() => {
+                      setCurrentView('register');
+                      resetForm();
+                    }}
+                    className="text-gray-600 hover:text-gray-800 underline text-base"
+                  >
+                    Don't have an account? Register here
+                  </button>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>

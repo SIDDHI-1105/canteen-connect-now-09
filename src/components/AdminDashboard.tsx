@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Shield, Plus, Edit, Trash2, Clock, CheckCircle, LogOut, Eye, QrCode, Settings } from 'lucide-react';
+import { Shield, Plus, Edit, Trash2, Clock, CheckCircle, LogOut, Eye, QrCode, Settings, Check } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 interface AdminDashboardProps {
@@ -52,7 +52,8 @@ const AdminDashboard = ({ user, onLogout }: AdminDashboardProps) => {
       total: 85,
       status: 'pending' as const,
       orderTime: '12:30 PM',
-      paymentScreenshot: 'uploaded'
+      paymentScreenshot: 'uploaded',
+      paymentVerified: false
     },
     {
       id: '2',
@@ -61,7 +62,8 @@ const AdminDashboard = ({ user, onLogout }: AdminDashboardProps) => {
       total: 200,
       status: 'preparing' as const,
       orderTime: '12:45 PM',
-      paymentScreenshot: 'uploaded'
+      paymentScreenshot: 'uploaded',
+      paymentVerified: true
     },
     {
       id: '3',
@@ -70,7 +72,8 @@ const AdminDashboard = ({ user, onLogout }: AdminDashboardProps) => {
       total: 100,
       status: 'ready' as const,
       orderTime: '1:00 PM',
-      paymentScreenshot: 'uploaded'
+      paymentScreenshot: 'uploaded',
+      paymentVerified: true
     }
   ]);
 
@@ -156,6 +159,16 @@ const AdminDashboard = ({ user, onLogout }: AdminDashboardProps) => {
     });
   };
 
+  const handleVerifyPayment = (orderId: string) => {
+    setOrders(prev => prev.map(order => 
+      order.id === orderId ? { ...order, paymentVerified: true } : order
+    ));
+    toast({
+      title: "Payment Verified",
+      description: "Payment has been marked as verified successfully.",
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Header */}
@@ -217,6 +230,11 @@ const AdminDashboard = ({ user, onLogout }: AdminDashboardProps) => {
                         <Badge className={getStatusColor(order.status)}>
                           {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                         </Badge>
+                        {order.paymentVerified && (
+                          <Badge className="bg-green-100 text-green-800 text-xs">
+                            Verified
+                          </Badge>
+                        )}
                         <Button
                           size="sm"
                           variant="outline"
@@ -245,7 +263,17 @@ const AdminDashboard = ({ user, onLogout }: AdminDashboardProps) => {
                       
                       <div className="flex items-center justify-between pt-3 border-t flex-wrap gap-3">
                         <span className="font-bold text-lg">Total: ₹{order.total}</span>
-                        <div className="flex space-x-2">
+                        <div className="flex space-x-2 flex-wrap gap-2">
+                          {!order.paymentVerified && (
+                            <Button
+                              size="sm"
+                              onClick={() => handleVerifyPayment(order.id)}
+                              className="bg-blue-500 hover:bg-blue-600 text-white mobile-tap-target"
+                            >
+                              <Check className="h-4 w-4 mr-1" />
+                              Verify Payment
+                            </Button>
+                          )}
                           {order.status === 'pending' && (
                             <Button
                               size="sm"
