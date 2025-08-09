@@ -1,0 +1,135 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 35 50% 98%;
+    --foreground: 25 25% 15%;
+
+    --card: 35 50% 98%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 35 50% 98%;
+    --popover-foreground: 25 25% 15%;
+
+    --primary: 25 85% 60%;
+    --primary-foreground: 35 50% 98%;
+
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 25 25% 20%;
+
+    --muted: 35 40% 92%;
+    --muted-foreground: 25 15% 50%;
+
+    --accent: 20 80% 75%;
+    --accent-foreground: 25 25% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 35 50% 98%;
+
+    --border: 35 30% 88%;
+    --input: 35 30% 88%;
+    --ring: 25 85% 60%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 35 45% 96%;
+    --sidebar-foreground: 25 20% 30%;
+    --sidebar-primary: 25 85% 60%;
+    --sidebar-primary-foreground: 35 50% 98%;
+    --sidebar-accent: 35 35% 90%;
+    --sidebar-accent-foreground: 25 25% 15%;
+    --sidebar-border: 35 25% 85%;
+    --sidebar-ring: 25 85% 60%;
+
+    /* Food-themed warm colors */
+    --warm-peach: 25 85% 75%;
+    --warm-coral: 15 85% 65%;
+    --warm-orange: 35 85% 65%;
+    --warm-amber: 45 85% 60%;
+    --warm-brown: 25 35% 40%;
+  }
+
+  .dark {
+    --background: 25 25% 8%;
+    --foreground: 35 50% 95%;
+
+    --card: 25 25% 8%;
+    --card-foreground: 35 50% 95%;
+
+    --popover: 25 25% 8%;
+    --popover-foreground: 35 50% 95%;
+
+    --primary: 25 85% 70%;
+    --primary-foreground: 25 25% 8%;
+
+    --secondary: 25 20% 15%;
+    --secondary-foreground: 35 50% 95%;
+
+    --muted: 25 20% 15%;
+    --muted-foreground: 25 15% 65%;
+
+    --accent: 20 80% 60%;
+    --accent-foreground: 35 50% 95%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 35 50% 95%;
+
+    --border: 25 20% 18%;
+    --input: 25 20% 18%;
+    --ring: 25 85% 70%;
+    
+    --sidebar-background: 25 25% 10%;
+    --sidebar-foreground: 35 40% 85%;
+    --sidebar-primary: 25 85% 65%;
+    --sidebar-primary-foreground: 25 25% 8%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 35 40% 85%;
+    --sidebar-border: 25 15% 18%;
+    --sidebar-ring: 25 85% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Mobile-first utilities */
+@layer utilities {
+  .mobile-tap-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  .mobile-card {
+    @apply p-4 sm:p-6;
+  }
+  
+  .mobile-text {
+    @apply text-base sm:text-sm;
+  }
+  
+  .warm-gradient-peach {
+    background: linear-gradient(135deg, hsl(25, 85%, 75%) 0%, hsl(15, 85%, 65%) 100%);
+  }
+  
+  .warm-gradient-orange {
+    background: linear-gradient(135deg, hsl(35, 85%, 65%) 0%, hsl(25, 85%, 60%) 100%);
+  }
+  
+  .warm-gradient-coral {
+    background: linear-gradient(135deg, hsl(15, 85%, 65%) 0%, hsl(5, 85%, 60%) 100%);
+  }
+}
