@@ -1,73 +1,162 @@
-# Welcome to your Lovable project
 
-## Project info
+# Canteen PWA
 
-**URL**: https://lovable.dev/projects/393b0dfa-8296-45a6-a3ca-c1ebad85964e
+A Progressive Web App for easy, cashless, and organized canteen management.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Overview
 
-**Use Lovable**
+This Canteen PWA is a Vite + React + TypeScript web application designed to digitize and streamline the canteen ordering process.
+It allows students and staff to browse menus, place orders, and make payments online, while admins can manage menus and process orders efficiently.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/393b0dfa-8296-45a6-a3ca-c1ebad85964e) and start prompting.
+The app is installable on mobile/desktop, supports offline mode, and uses a simple PIN login system for quick access.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Technologies Used
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+* Frontend: React, TypeScript, Tailwind CSS, shadcn-ui
+* PWA Support: manifest.json, service-worker.js
+* Build Tool: Vite
+* State Management: Local Storage / Session Storage
+* Backend: Node.js (API & File Uploads)
+* Database: \[Specify database used]
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Key Files
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### manifest.json
+
+Defines app name, icons, theme color, start URL, and display mode for PWA installation.
+
+### service-worker.js
+
+Handles offline caching for faster load times and no-network support.
+
+---
+
+## Student-Facing Features
+
+### 1. User Authentication
+
+* Register/Login using:
+
+  * Toll Number for students
+  * Employee ID for teachers/staff
+* Set 4–6 digit PIN during registration
+* Login with PIN only (no password required)
+* Secure logout and session-based login
+
+### 2. Menu Browsing
+
+* Single-page menu with categories:
+
+  * Breakfast
+  * Lunch
+  * Snacks
+  * Drinks
+  * Dinner
+  * Desserts
+  * Specials
+* Each item shows name, description, price, and availability
+
+### 3. Add to Cart
+
+* Add/remove items instantly
+* Adjust quantity and auto-calculate subtotal
+* Cart stored in session/localStorage
+
+### 4. Place Order
+
+* Review items, confirm total, and proceed to payment
+
+### 5. Static QR Payment and Screenshot Upload
+
+* Display static UPI QR code (GPay, PhonePe, Paytm)
+* Upload screenshot of payment
+* Screenshot linked to the specific order in the database
+
+### 6. Order Tracking
+
+* Order Status: Preparing → Ready → Completed
+* Payment Status: Pending / Verified
+* Displays timestamps and ordered items
+
+### 7. Order History
+
+* View past orders with receipts
+* Download payment screenshots
+* Rating feature removed
+
+---
+
+## Admin/Station-Facing Features
+
+### 1. Admin Authentication
+
+* Separate login for each seller/store
+* Role-based access to menus and orders
+
+### 2. Menu Management
+
+* Add, edit, delete menu items
+* Update price, category, and availability
+* Mark items as Out of Stock
+* Menu edit bug fixed
+
+### 3. Order Management
+
+* View all student orders with:
+
+  * Student info (Toll No./Employee ID)
+  * Ordered items
+  * Payment screenshot
+* Admin can now view uploaded payment screenshots
+* Update order status: Preparing → Ready → Completed
+* Update payment status: Pending → Verified
+
+---
+
+## Local Development Setup
+
+```
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Deployment
 
-**Use GitHub Codespaces**
+* Deploy directly from Lovable → Share → Publish
+* For a custom domain, go to Project → Settings → Domains → Connect Domain
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## PWA Features
 
-This project is built with:
+* Add to Home Screen
+* Works offline with cached menu and cart
+* Fast load times via service worker
+* Mobile-friendly UI
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## Changelog
 
-Simply open [Lovable](https://lovable.dev/projects/393b0dfa-8296-45a6-a3ca-c1ebad85964e) and click on Share -> Publish.
+* Removed Rate Order feature
+* Fixed Edit Menu bug
+* Fixed Admin Payment Screenshot View issue
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
