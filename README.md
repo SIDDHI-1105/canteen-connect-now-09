@@ -18,7 +18,7 @@ The app supports offline mode and can be installed on mobile and desktop devices
 * Frontend: HTML, CSS, JavaScript, React, Tailwind CSS, shadcn-ui
 * Backend: PHP
 * Database: MySQL
-* PWA Support: manifest.json, service-worker.js
+* PWA Support: manifest.json, service-worker.js AND MORE
 * Build Tool: Vite
 
 ---
@@ -69,5 +69,4 @@ npm run dev
 * Works offline with cached menu and cart
 * Fast load times via service worker
 
----
-
+:)
