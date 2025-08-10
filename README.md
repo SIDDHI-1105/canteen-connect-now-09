@@ -4,12 +4,25 @@ A Progressive Web App for easy and cashless canteen management.
 
 ---
 
+
 ## Overview
 
-The Canteen PWA is designed to simplify the process of ordering food in the canteen.
-Students and staff can browse the menu, place orders, make payments online, and track their order status.
-Admins can manage menus, update availability, and verify orders.
-The app supports offline mode and can be installed on mobile and desktop devices.
+The **Canteen PWA** is built to make ordering food in the canteen faster and more convenient.
+Students and staff can:
+
+* Browse the menu
+* Place orders
+* Make online payments
+* Track order status in real time
+
+Admins can:
+
+* Manage and update menus
+* Adjust item availability
+* Verify and process orders
+
+The app also works in offline mode and can be installed on both mobile and desktop devices.
+
 
 ---
 
