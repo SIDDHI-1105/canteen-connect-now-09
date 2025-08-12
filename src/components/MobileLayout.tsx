@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, User, Shield } from 'lucide-react';
+import { ArrowLeft, User, Shield, Menu, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface MobileLayoutProps {
   title: string;
@@ -71,6 +72,26 @@ const MobileLayout = ({ title, subtitle, onBack, onLogout, userType, children }:
       <main className="pb-4">
         {children}
       </main>
+
+      {/* Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-orange-200 shadow-lg">
+        <div className="flex justify-around py-2">
+          <Link
+            to="/"
+            className="flex flex-col items-center p-2 text-gray-600 hover:text-orange-600 transition-colors"
+          >
+            <Home className="h-5 w-5 mb-1" />
+            <span className="text-xs">Home</span>
+          </Link>
+          <Link
+            to="/menu"
+            className="flex flex-col items-center p-2 text-gray-600 hover:text-orange-600 transition-colors"
+          >
+            <Menu className="h-5 w-5 mb-1" />
+            <span className="text-xs">Menu</span>
+          </Link>
+        </div>
+      </nav>
     </div>
   );
 };
